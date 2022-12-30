@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Seo from "../components/seo"
 import MainTopic from "../components/mainTopic"
 import { Header } from "../components/Header"
-import { GoogleMap } from "../components/GoogleMap"
+import { MapComponent } from "../components/MapComponent"
 import { PricingTable } from "../components/PricingTable"
 import { Teeth } from "../components/Teeth"
 import { Footer } from "../components/Footer"
@@ -49,7 +49,7 @@ const IndexPage = () => (
     <section id="galery">
       <div>pic galery</div>
     </section>
-    <GoogleMap />
+    <MapComponent />
     <PricingTable />
     <Teeth />
     <Footer />
