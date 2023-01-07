@@ -1,4 +1,3 @@
-import React from "react"
 import { createGlobalStyle } from "styled-components"
 
 const colorValues = {
@@ -9,6 +8,9 @@ const colorValues = {
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    color: ${props => (props.theme === "primary" ? colorValues.primary : colorValues.secondary)};
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: ${({theme}) => (theme === "primary" ? colorValues.primary : colorValues.secondary)};
   }
 `

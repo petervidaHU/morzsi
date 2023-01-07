@@ -42,7 +42,7 @@ const IndexPage = () => (
    
   </Layout> */
   <>
-    <GlobalStyle theme="purple" />
+    <GlobalStyle theme="primary" />
     <main>
       <Header />
       <section id="hero">
