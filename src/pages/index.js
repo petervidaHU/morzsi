@@ -9,6 +9,7 @@ import { MapComponent } from "../components/MapComponent"
 import { PricingTable } from "../components/PricingTable"
 import { Teeth } from "../components/Teeth"
 import { Footer } from "../components/Footer"
+import { GlobalStyle } from "../style/globalStyles"
 
 const IndexPage = () => (
   /*  <Layout>
@@ -40,20 +41,23 @@ const IndexPage = () => (
   
    
   </Layout> */
-  <main>
-    <Header />
-    <section id="hero">
-      <div></div>
-    </section>
-    <MainTopic />
-    <section id="galery">
-      <div>pic galery</div>
-    </section>
-    <MapComponent />
-    <PricingTable />
-    <Teeth />
-    <Footer />
-  </main>
+  <>
+    <GlobalStyle theme="purple" />
+    <main>
+      <Header />
+      <section id="hero">
+        <div></div>
+      </section>
+      <MainTopic />
+      <section id="galery">
+        <div>pic galery</div>
+      </section>
+      <MapComponent />
+      <PricingTable />
+      <Teeth />
+      <Footer />
+    </main>
+  </>
 )
 
 /**
