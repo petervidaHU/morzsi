@@ -3,12 +3,12 @@ import { useEffect, useState, useCallback } from "react"
 function useScrollY() {
   const [isTop, setIsTop] = useState(false)
   const [prevY, setPrevY] = useState(0)
-  const [isDown, setIsDown] = useState(true)
+  const [isAscending, setIsAscending] = useState(true)
 
   const handleScroll = useCallback(() => {
     const y = window.scrollY
     setIsTop(y < 10 ? true : false)
-    setIsDown(prevY > y ? true : false)
+    setIsAscending(prevY > y ? true : false)
     setPrevY(y)
   }, [prevY])
 
@@ -35,7 +35,7 @@ function useScrollY() {
     }
   }, [debounce, handleScroll])
 
-  return { isTop, isDown }
+  return { isTop, isAscending }
 }
 
 export default useScrollY
