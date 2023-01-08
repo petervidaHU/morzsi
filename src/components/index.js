@@ -1,0 +1,7 @@
+export { Header } from "../components/Header"
+export { MapComponent } from "../components/MapComponent"
+export { PricingTable } from "../components/PricingTable"
+export { Teeth } from "../components/Teeth"
+export { Footer } from "../components/Footer"
+export { MainTopic } from "../components/mainTopic"
+export { Seo } from "../components/seo"

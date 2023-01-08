@@ -46,17 +46,17 @@ Agresszív, illetve nehezen kezelhető állatokat illetve gazdikat nem fogadok. 
 
 export function PricingTable() {
   const breedJSX = breedsData.map(breedData => (
-    <div>
+    <div key={breedData[0]+breedData[1]}>
       {breedData[0]}: {breedData[1]}
     </div>
   ))
   const dataJSX = datas.map(data => (
-    <div>
+    <div key={data[0]}>
       {data[0]}: {data[1]}
     </div>
   ))
   return (
-    <section id="pricing">
+    <section id="section-prices">
       <div>{pricingAforText}</div>
       <div>{breedJSX}</div>
       <div>{dataJSX}</div>

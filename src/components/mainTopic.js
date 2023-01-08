@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const MainTopic = () => (
+export const MainTopic = () => (
 <section id="main-topic">
   <div>
     Üdvözöllek a Morzsi szépül kutyakozmetika honlapján!
@@ -10,5 +10,3 @@ const MainTopic = () => (
     +3630 428 1370.
   </div>
 </section>);
-
-export default MainTopic;
