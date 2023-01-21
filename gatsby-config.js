@@ -28,6 +28,8 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    'gatsby-transformer-inline-svg',
+    'gatsby-plugin-preload-fonts',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -55,5 +57,14 @@ module.exports = {
         duration: 1000,
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/ // See below to configure properly
+        }
+      }
+    },
+   
   ],
 }

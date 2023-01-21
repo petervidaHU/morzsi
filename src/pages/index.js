@@ -8,17 +8,16 @@ import {
   Footer,
   MainTopic,
   Seo,
+  Hero,
 } from "../components"
 import { GlobalStyle } from "../style/globalStyles"
 
 const IndexPage = () => (
   <>
     <GlobalStyle theme="primary" />
-    <main>
       <Header />
-      <section id="hero">
-        <div></div>
-      </section>
+    <main>
+      <Hero />
       <MainTopic />
       <section id="section-gallery">
         <div>pic galery</div>
@@ -26,8 +25,8 @@ const IndexPage = () => (
       <MapComponent />
       <PricingTable />
       <Teeth />
-      <Footer />
     </main>
+      <Footer />
   </>
 )
 
