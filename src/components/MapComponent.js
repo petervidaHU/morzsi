@@ -1,10 +1,10 @@
 import * as React from "react"
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api"
+import styled from "styled-components"
+import { t } from "../style/globalStyles"
+import { baseElements } from "../style/baseElements"
 
-const containerStyle = {
-  width: "100%",
-  height: "800px",
-}
+const Section = baseElements.MySection
 
 const center = {
   lat: 47.50758,
@@ -32,7 +32,8 @@ export function MapComponent() {
   }, [])
 
   return (
-    <div id="section-map">
+    <MapSection id="section-map" wide borderUpDown noPaddingBlock>
+
       {isLoaded ? (
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={17}>
           <Marker position={center} />
@@ -40,6 +41,14 @@ export function MapComponent() {
       ) : (
         <div>loading...</div>
       )}
-    </div>
+    </MapSection>
   )
+}
+
+const MapSection = styled(Section)`
+`
+const containerStyle = {
+  paddingBlock: "2rem",
+  width: "100%",
+  height: "100vh",
 }
