@@ -1,44 +1,63 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
-import { themeDefault } from "../style/globalStyles"
-import vav from "./../images/waves.svg"
+import { t } from "../style/globalStyles"
+import bord from "../images/pet-grooming-debrecen-hero-1.webp"
 
-const heroBackgroundColor = themeDefault.color.light3
-
-const MySVG = ({ fillColor }) => (
-  <svg
-    data-name="Layer 1"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1200 120"
-    preserveAspectRatio="none"
-  >
-    <path
-      d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-      class="shape-fill"
-      fill="#FFFFFF"
-      fill-opacity="1"
-    ></path>
-  </svg>
-)
-
-const svgString = ReactDOMServer.renderToString(<MySVG fillColor="#FFFFFF" />)
+const heroBackgroundColor = t.color.light3
+const titleFamily = t.fontFamily.heading1
+const titleColor = t.color.dark1
 
 export const Hero = () => {
   return (
     <>
-      <HeroSection svg={svgString}>Morzsi Szépül kutyakozmetika</HeroSection>
+      <HeroSection>
+        <PicDiv />
+        <TitleDiv>
+          Morzsi Szépül
+          <br />
+          kutyakozmetika
+        </TitleDiv>
+      </HeroSection>
     </>
   )
 }
 
 const HeroSection = styled.section`
-  min-height: 40vh;
-  padding: 0;
+  align-items: center;
   background-color: ${heroBackgroundColor};
-  width: 100%;
-  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vh), 0 100%);
+  display: flex;
+  justify-content: space-between;
   line-height: 0;
-  // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vh), 0 100%);
-  // background-image: url(${MySVG});
-  clip-path: url(data:image/svg+xml,${(props) => props.svg});
+  min-height: 60vh;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+`
+
+const PicDiv = styled.div`
+  height: 60vh;
+  width: 100%;
+  max-width: 50vw;
+  background-image: url(${bord});
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-position-x: 10vw;
+  background-size: 70%;
+`
+
+const TitleDiv = styled.div`
+  padding-inline-end: 5vw;
+  padding-block-end: 5vw;
+  font-family: ${titleFamily};
+  font-size: 5rem;
+  color: ${titleColor};
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  min-height: 10vh;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 `

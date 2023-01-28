@@ -1,12 +1,13 @@
 import { createGlobalStyle } from "styled-components"
 
+
 const colorPurple = "hsl(300, 66%, 12%)"
 const colorLightPurple = "hsl(263, 12%, 53%)"
 const colorLight = "hsl(177, 25%, 63%)"
 const colorPale = "hsl(137, 25%, 72%)"
 const colorButter = "hsl(44, 58%, 90%)"
 
-export const themeDefault = {
+export const t  = {
   color: {
     dark1: colorPurple,
     light1: colorPale,
@@ -18,8 +19,9 @@ export const themeDefault = {
     secondary: "brown",
   },
   fontFamily: {
+    heading1: "Orelega One",
     primary: "Nunito",
-    secondary: "Roboto",
+    secondary: "",
   },
   padding: ["0.5rem", "1rem", "2rem", "3rem", "4rem", "5rem", "6rem", "7rem"],
   margin: ["1rem", "2rem", "3rem", "4rem", "5rem", "6rem", "7rem"],
@@ -27,27 +29,33 @@ export const themeDefault = {
 }
 
 export const GlobalStyle = createGlobalStyle`
-  body {
+
+body {
+    font-family: ${t.fontFamily.primary}, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     color: ${({ theme }) =>
-      theme === "primary" ? themeDefault.color.primary : themeDefault.color.secondary};
+      theme === "primary" ? t.color.primary : t.color.secondary};
   }
-
+  
   section {
-    padding: ${themeDefault.padding[1]} ${themeDefault.padding[2]};
+    padding: ${t.padding[1]} ${t.padding[2]};
   }
   h1 {
-    font-size: ${themeDefault.fontSizes[6]};
+    font-family: ${t.fontFamily.heading1}, Times, serif;
+    font-size: ${t.fontSizes[6]};
   }
   h2 {
-    font-size: ${themeDefault.fontSizes[5]};
+    font-family: ${t.fontFamily.heading1}, Times, serif;
+    font-size: ${t.fontSizes[5]};
   }
   h3 {
-    font-size: ${themeDefault.fontSizes[4]};
+    font-family: ${t.fontFamily.heading1}, Times, serif;
+    font-size: ${t.fontSizes[4]};
   }
   h4 {
-    font-size: ${themeDefault.fontSizes[3]};
+    font-family: ${t.fontFamily.heading1}, Times, serif;
+    font-size: ${t.fontSizes[3]};
   }
 `
