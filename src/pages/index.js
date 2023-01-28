@@ -11,7 +11,9 @@ import {
   Hero,
 } from "../components"
 import { GlobalStyle } from "../style/globalStyles"
+import { baseElements } from "../style/baseElements"
 
+const Teszt = baseElements.MySection;
 const IndexPage = () => (
   <>
     <GlobalStyle theme="primary" />
@@ -24,6 +26,7 @@ const IndexPage = () => (
       </section>
       <MapComponent />
       <PricingTable />
+      <Teszt wide/>
       <Teeth />
     </main>
       <Footer />

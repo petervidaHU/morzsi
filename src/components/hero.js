@@ -2,15 +2,18 @@ import React from "react"
 import styled from "styled-components"
 import { t } from "../style/globalStyles"
 import bord from "../images/pet-grooming-debrecen-hero-1.webp"
+import { baseElements } from "../style/baseElements"
 
 const heroBackgroundColor = t.color.light3
 const titleFamily = t.fontFamily.heading1
 const titleColor = t.color.dark1
+const borderFancy = t.borderFancy
+const Section = baseElements.MySection
 
 export const Hero = () => {
   return (
     <>
-      <HeroSection>
+      <HeroSection wide borderDown>
         <PicDiv />
         <TitleDiv>
           Morzsi Szépül
@@ -22,17 +25,14 @@ export const Hero = () => {
   )
 }
 
-const HeroSection = styled.section`
+const HeroSection = styled(Section)`
   align-items: center;
   background-color: ${heroBackgroundColor};
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vh), 0 100%);
   display: flex;
   justify-content: space-between;
   line-height: 0;
   min-height: 60vh;
-  padding: 0;
   overflow: hidden;
-  width: 100%;
 `
 
 const PicDiv = styled.div`
