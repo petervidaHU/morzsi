@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { t } from "../style/globalStyles"
 import bord from "../images/pet-grooming-debrecen-hero-1.webp"
 import { baseElements } from "../style/baseElements"
+import { StaticImage } from "gatsby-plugin-image"
 
 const heroBackgroundColor = t.color.light3
 const titleFamily = t.fontFamily.heading1
@@ -14,7 +15,14 @@ export const Hero = () => {
   return (
     <>
       <HeroSection wide borderDown>
-        <PicDiv />
+        <PicDiv>
+          <StaticImage
+            src="../images/pet-grooming-debrecen-hero-1.webp"
+            alt="picture of a groomed dog"
+            placeholder="blurred"
+            height="600"
+            />
+        </PicDiv>
         <TitleDiv>
           Morzsi Szépül
           <br />
@@ -32,23 +40,27 @@ const HeroSection = styled(Section)`
   justify-content: space-between;
   line-height: 0;
   min-height: 60vh;
+  max-height: 60vh;
   overflow: hidden;
 `
 
 const PicDiv = styled.div`
   height: 60vh;
-  width: 100%;
-  max-width: 50vw;
-  background-image: url(${bord});
+ // width: 100%;
+  max-width: 40vw;
+  min-width: 40vw;
+  // background-image: url(${bord});
   background-repeat: no-repeat;
   background-position: left bottom;
   background-repeat: no-repeat;
   background-position-x: 10vw;
   background-size: 70%;
-`
+  padding-left: 5vw;`
 
 const TitleDiv = styled.div`
-  padding-inline-end: 5vw;
+  width: 100%;
+  max-width: 60vw;
+  //padding-inline-end: 5vw;
   padding-block-end: 5vw;
   font-family: ${titleFamily};
   font-size: 5rem;

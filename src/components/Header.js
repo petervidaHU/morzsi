@@ -14,7 +14,6 @@ export const Header = () => {
         <AnchorLink to="/#section-gallery">Képgaléria</AnchorLink>
         <AnchorLink to="/#section-map">Térkép</AnchorLink>
         <AnchorLink to="/#section-prices">árak</AnchorLink>
-        <AnchorLink to="/#section-teeth">Fogtisztítás </AnchorLink>
         </div>
         <div>
         +3630 4281370 | Debrecen, Feketerét u 23
