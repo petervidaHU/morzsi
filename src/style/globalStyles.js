@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components"
 
 const colorPurple = "hsl(300, 66%, 12%)"
 const colorLightPurple = "hsl(263, 12%, 53%)"
-const colorLight = "hsl(177, 25%, 63%)"
+const colorLight = "hsl(44, 90%, 100%)"
 const colorPale = "hsl(137, 25%, 72%)"
 const colorButter = "hsl(44, 58%, 90%)"
 
@@ -11,7 +11,7 @@ export const t  = {
   color: {
     dark1: colorPurple,
     light1: colorPale,
-    light2: colorLightPurple,
+    light2: colorLight,
     light3: colorButter,
   },
   backgroundColor: {
@@ -23,7 +23,7 @@ export const t  = {
     primary: "Nunito",
     secondary: "",
   },
-  padding: ["0.5rem", "1rem", "2rem", "3rem", "4rem", "5rem", "6rem", "7rem"],
+  padding: ["0.5rem", "1rem", "2rem", "3rem", "4rem", "6rem", "8rem"],
   margin: ["1rem", "2rem", "3rem", "4rem", "5rem", "6rem", "7rem"],
   fontSizes: [".7rem", "1rem", "1.2rem", "1.6rem", "2rem", "4rem", "8rem"],
   borderUpDown: "polygon(0 10vh, 100% 0, 100% calc(100% - 10vh), 0 100%)",
@@ -37,6 +37,7 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-color: ${t.color.light2};
     color: ${({ theme }) =>
       theme === "primary" ? t.color.primary : t.color.secondary};
   }
@@ -58,5 +59,9 @@ body {
   h4 {
     font-family: ${t.fontFamily.heading1}, Times, serif;
     font-size: ${t.fontSizes[3]};
+  }
+
+  p {
+    font-family: ${t.fontFamily.primary}, Times, serif;
   }
 `

@@ -1,4 +1,12 @@
 import * as React from "react"
+import styled from "styled-components"
+import { getDarkerColor } from "../helpers"
+import { baseElements } from "../style/baseElements"
+import { t } from "../style/globalStyles"
+
+const Section = baseElements.MySection
+const tableBackground = t.color.light2
+const trPadding = t.padding[0]
 
 const breedsData = [
   ["Yorkshire terrier", "2800-3500"],
@@ -38,29 +46,58 @@ const datas = [
 
 const pricingAforText = `A komplett kutyakozmetikai kezelés tartalmazza a teljes fazonozást, fürdetést, szárítást, az egészségügyi nyírásokat, tisztításokat, amennyiben szükségesek.
 Az ár változhat, ha az állat szőre és állapota az átlagostól jelentősen rosszabb. 
-Az ártáblázatban nem szereplő fajtákkal kapcsolatban hívjon bátran!`;
+Az ártáblázatban nem szereplő fajtákkal kapcsolatban hívjon bátran!`
 
 const pricingAfterText = `Áraink bruttó árak és magyar forintban értendőek.
 Oltással nem rendelkező állatokat nem fogadok.
-Agresszív, illetve nehezen kezelhető állatokat illetve gazdikat nem fogadok. `;
+Agresszív, illetve nehezen kezelhető állatokat illetve gazdikat nem fogadok. `
 
 export function PricingTable() {
   const breedJSX = breedsData.map(breedData => (
-    <div key={breedData[0]+breedData[1]}>
-      {breedData[0]}: {breedData[1]}
-    </div>
+    <tr key={breedData[0] + breedData[1]}>
+      <td>{breedData[0]}:</td>
+      <td>{breedData[1]}</td>
+    </tr>
   ))
   const dataJSX = datas.map(data => (
-    <div key={data[0]}>
-      {data[0]}: {data[1]}
-    </div>
+    <tr key={data[0]}>
+      <td>{data[0]}:</td>
+      <td>{data[1]}</td>
+    </tr>
   ))
   return (
-    <section id="section-prices">
-      <div>{pricingAforText}</div>
-      <div>{breedJSX}</div>
-      <div>{dataJSX}</div>
-      <div>{pricingAfterText}</div>
-    </section>
+    <Section id="section-prices">
+      <h2>Árlista</h2>
+      <p>{pricingAforText}</p>
+      <p>{pricingAfterText}</p>
+      <Table>
+        <tbody>
+          {breedJSX}
+          {dataJSX}
+        </tbody>
+      </Table>
+    </Section>
   )
 }
+
+console.log("get darjer:", )
+
+const Table = styled.table`
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 50%;
+
+  td {
+    padding: ${trPadding} ${trPadding};
+  }
+
+  td:nth-child(2) {
+    margin: 0 0 0 auto;
+    float: right;
+  }
+
+  tr:nth-child(even) {
+    background-color: ${getDarkerColor(tableBackground, 1)};
+  }
+`
+
