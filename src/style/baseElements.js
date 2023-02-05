@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import { t } from "./globalStyles"
+import { t, mediaMorzsi } from "./globalStyles"
+
 
 export const baseElements = {
   MySection: styled.section`
@@ -8,5 +9,9 @@ export const baseElements = {
     padding-inline: ${({ wide }) => (wide ? "0" : t.padding[6])};
     clip-path: ${({ borderDown, borderUpDown }) =>
       borderUpDown ? t.borderUpDown : borderDown ? t.borderDown : ""};
+
+    ${mediaMorzsi.lessThan("medium")`
+      padding-inline: ${({ wide }) => (wide ? "0" : t.padding[2])};
+    `}
   `,
 }

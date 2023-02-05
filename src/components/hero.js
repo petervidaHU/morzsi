@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { t } from "../style/globalStyles"
+import { mediaMorzsi, t } from "../style/globalStyles"
 import bord from "../images/pet-grooming-debrecen-hero-1.webp"
 import { baseElements } from "../style/baseElements"
 import { StaticImage } from "gatsby-plugin-image"
@@ -42,14 +42,37 @@ const HeroSection = styled(Section)`
   min-height: 60vh;
   max-height: 60vh;
   overflow: hidden;
+
+  ${mediaMorzsi.lessThan("large")`
+   min-height: 50vh;
+   max-height: 50vh;
+  `}
+
+  ${mediaMorzsi.lessThan("subLarge")`
+   min-height: 30vh;
+   max-height: 30vh;
+  `}
+
+  ${mediaMorzsi.lessThan("medium")`
+   min-height: 30vh;
+   max-height: 30vh;
+  `}
 `
 
 const PicDiv = styled.div`
   height: 60vh;
- // width: 100%;
-  max-width: 40vw;
+  // max-width: 40vw;
   min-width: 40vw;
-  // background-image: url(${bord});
+  
+  ${mediaMorzsi.lessThan("large")`
+   min-width: 45vw;
+   `}
+
+  ${mediaMorzsi.lessThan("subLarge")`
+   min-width: 30vw;
+   height: 45vh;
+  `}
+
   background-repeat: no-repeat;
   background-position: left bottom;
   background-repeat: no-repeat;
@@ -60,7 +83,6 @@ const PicDiv = styled.div`
 const TitleDiv = styled.div`
   width: 100%;
   max-width: 60vw;
-  //padding-inline-end: 5vw;
   padding-block-end: 5vw;
   font-family: ${titleFamily};
   font-size: 5rem;
@@ -72,4 +94,19 @@ const TitleDiv = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+  
+  ${mediaMorzsi.lessThan("large")`
+   font-size: 4rem;
+   padding-inline-end: 1rem;
+  `}
+
+  ${mediaMorzsi.lessThan("subLarge")`
+   font-size: 3.5rem;
+   padding-inline-end: 2rem;
+  `}
+
+  ${mediaMorzsi.lessThan("medium")`
+   font-size: 2rem;
+   padding-inline-end: 2rem;
+  `}
 `

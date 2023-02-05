@@ -4,7 +4,7 @@ import { baseElements } from "../style/baseElements";
 const Section = baseElements.MySection;
 
 export const MainTopic = () => (
-<Section id="main-topic">
+<Section id="section-top">
   <div>
     Vallyon Ildikó vagyok, szakképzett kutyakozmetikus, és Debrecenben évek óta foglalkozom már a szépülni vágyó kutyusokkal.
     Az OKJ-s képzésen túl volt szerencsém Amerikában is tanulni, gyakorolni a kutyák megszépítését. Büszkén mondhatom, hogy ügyfeleim zöme visszajáró vendég, és az elégedett gazdik egymásnak ajánlanak.

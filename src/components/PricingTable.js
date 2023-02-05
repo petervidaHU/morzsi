@@ -2,7 +2,7 @@ import * as React from "react"
 import styled from "styled-components"
 import { getDarkerColor } from "../helpers"
 import { baseElements } from "../style/baseElements"
-import { t } from "../style/globalStyles"
+import { mediaMorzsi, t } from "../style/globalStyles"
 
 const Section = baseElements.MySection
 const tableBackground = t.color.light2
@@ -80,12 +80,28 @@ export function PricingTable() {
   )
 }
 
-console.log("get darjer:", )
+console.log("get darjer:")
 
 const Table = styled.table`
   margin: 0 auto;
   border-collapse: collapse;
   width: 50%;
+
+  ${mediaMorzsi.lessThan("subHuge")`
+    width: 60%;
+    `}
+    
+  ${mediaMorzsi.lessThan("large")`
+    width: 70%;
+  `}
+
+  ${mediaMorzsi.lessThan("subLarge")`
+    width: 95%;
+  `}
+
+  ${mediaMorzsi.lessThan("medium")`
+    width: 100%;
+  `}
 
   td {
     padding: ${trPadding} ${trPadding};
@@ -100,4 +116,3 @@ const Table = styled.table`
     background-color: ${getDarkerColor(tableBackground, 1)};
   }
 `
-

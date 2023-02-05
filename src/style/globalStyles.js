@@ -1,4 +1,14 @@
 import { createGlobalStyle } from "styled-components"
+import { generateMedia } from "styled-media-query";
+ 
+export const mediaMorzsi = generateMedia({
+  huge: '1440px',
+  subHuge: '1300px',
+  large: '1170px',
+  subLarge: '960px',
+  medium: '768px',
+  small: '480px',
+});
 
 
 const colorPurple = "hsl(300, 66%, 12%)"
@@ -51,6 +61,10 @@ body {
   h2 {
     font-family: ${t.fontFamily.heading1}, Times, serif;
     font-size: ${t.fontSizes[5]};
+    
+    ${mediaMorzsi.lessThan('medium')`
+      font-size: ${t.fontSizes[4]};
+    `}
   }
   h3 {
     font-family: ${t.fontFamily.heading1}, Times, serif;
