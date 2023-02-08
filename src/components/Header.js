@@ -1,23 +1,40 @@
 import * as React from "react"
-import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import styled from "styled-components"
 import useScrollY from "../style/hooks/useScrollY"
+import { mediaMorzsi } from "../style/globalStyles"
+import { useState } from "react"
+import { HamburgerMenu } from "./HamburgerMenu"
+import { CtaHeader } from "./ctaHeader"
 
 export const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false)
   const { isTop, isAscending } = useScrollY()
+
+  const menuHandler = () => {
+    setMenuOpen(!menuOpen)
+  }
+
   return (
     <NavStyled ascending={isAscending} top={isTop}>
       <ContainerDiv>
-        <div>
-        LOGO 
-        <AnchorLink to="/#section-top">Top</AnchorLink>
-        <AnchorLink to="/#section-gallery">Képgaléria</AnchorLink>
-        <AnchorLink to="/#section-map">Térkép</AnchorLink>
-        <AnchorLink to="/#section-prices">árak</AnchorLink>
-        </div>
-        <div>
-        +3630 4281370 | Debrecen, Feketerét u 23
-        </div>
+        <MenuDiv isOpen={menuOpen}>
+          LOGO
+          <div onClick={menuHandler}>
+            <AnchorLink to="/#section-top">Top</AnchorLink>
+          </div>
+          <div onClick={menuHandler}>
+            <AnchorLink to="/#section-gallery">Képgaléria</AnchorLink>
+          </div>
+          <div onClick={menuHandler}>
+            <AnchorLink to="/#section-map">Térkép</AnchorLink>
+          </div>
+          <div onClick={menuHandler}>
+            <AnchorLink to="/#section-prices">árak</AnchorLink>
+          </div>
+        </MenuDiv>
+        <CtaHeader isOpen={menuOpen}/>
+        <HamburgerMenu handler={menuHandler} menuOpen={menuOpen} />
       </ContainerDiv>
     </NavStyled>
   )
@@ -32,7 +49,7 @@ const NavStyled = styled.nav`
   position: sticky;
   top: 0px;
   z-index: 10;
-  transition: opacity, .5s;
+  transition: opacity, 0.5s;
   &:hover {
     opacity: 1;
   }
@@ -40,11 +57,40 @@ const NavStyled = styled.nav`
 const ContainerDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  transition: all 0.4s ease;
 
   a {
     text-decoration: none;
     color: white;
     padding-right: 2em;
   }
- 
+`
+const MenuDiv = styled.div`
+  display: flex;
+  transition: height 1s ease;
+  justify-content: space-around;
+
+  ${mediaMorzsi.lessThan("small")`
+  ${({ isOpen }) =>
+    !isOpen &&
+    `
+      height: 0;
+      position: absolute;
+      top: -1000px;
+    `}
+
+  ${({ isOpen }) =>
+    isOpen &&
+    `
+      width: 100%;
+      height: 45vh;
+      flex-direction: column;
+      text-align: center;
+      font-size: 2em;
+
+      a {
+        padding-right: 0px;
+      }
+    `}
+  `}
 `
