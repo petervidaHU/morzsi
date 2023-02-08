@@ -2,8 +2,10 @@ import * as React from "react"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import styled from "styled-components"
 import useScrollY from "../style/hooks/useScrollY"
-import { t, mediaMorzsi } from "../style/globalStyles"
+import { mediaMorzsi } from "../style/globalStyles"
 import { useState } from "react"
+import { HamburgerMenu } from "./HamburgerMenu"
+import { CtaHeader } from "./ctaHeader"
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -11,7 +13,6 @@ export const Header = () => {
 
   const menuHandler = () => {
     setMenuOpen(!menuOpen)
-    console.log(menuOpen)
   }
 
   return (
@@ -32,17 +33,11 @@ export const Header = () => {
             <AnchorLink to="/#section-prices">árak</AnchorLink>
           </div>
         </MenuDiv>
-        <HamburgerDiv onClick={menuHandler} isOpen={menuOpen}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </HamburgerDiv>
+        <CtaHeader isOpen={menuOpen}/>
+        <HamburgerMenu handler={menuHandler} menuOpen={menuOpen} />
       </ContainerDiv>
     </NavStyled>
   )
-}
-{
-  /* <div>+3630 4281370 | Debrecen, Feketerét u 23</div> */
 }
 
 const NavStyled = styled.nav`
@@ -74,63 +69,28 @@ const MenuDiv = styled.div`
   display: flex;
   transition: height 1s ease;
   justify-content: space-around;
+
   ${mediaMorzsi.lessThan("small")`
   ${({ isOpen }) =>
     !isOpen &&
     `
-    height: 0;
+      height: 0;
       position: absolute;
       top: -1000px;
     `}
-  ${({ isOpen }) =>
-    isOpen &&
-  `
-  width: 100%;
-  height: 45vh;
-  flex-direction: column;
-  text-align: center;
-  font-size: 2em;
 
-  a {
-    padding-right: 0px;
-  }
-
-  `}
-  `}
-`
-
-const HamburgerDiv = styled.div`
-  position: fixed;
-  right: 0;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding-inline-end: 1rem;
-
-  ${mediaMorzsi.greaterThan("small")`
-    display: none;
-  `}
-
-  div {
-    width: 30px;
-    height: 3px;
-    background: black;
-    margin: 6px 0;
-    transition: all 0.4s ease;
-  }
   ${({ isOpen }) =>
     isOpen &&
     `
-    div:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
+      width: 100%;
+      height: 45vh;
+      flex-direction: column;
+      text-align: center;
+      font-size: 2em;
 
-    div:nth-child(2) {
-      opacity: 0;
-    }
-
-    div:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
+      a {
+        padding-right: 0px;
+      }
+    `}
   `}
 `
