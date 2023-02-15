@@ -12,6 +12,7 @@ import {
 } from "../components"
 import { GlobalStyle } from "../style/globalStyles"
 import { baseElements } from "../style/baseElements"
+import { Gallery } from "../components/Gallery"
 
 const Teszt = baseElements.MySection;
 const IndexPage = () => (
@@ -21,9 +22,7 @@ const IndexPage = () => (
     <main>
       <Hero />
       <MainTopic />
-      <section id="section-gallery">
-        <div>pic galery</div>
-      </section>
+      <Gallery />
       <MapComponent />
       <PricingTable />
       <Teszt wide/>
