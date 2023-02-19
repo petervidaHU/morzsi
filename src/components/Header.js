@@ -58,6 +58,17 @@ const ContainerDiv = styled.div`
   display: flex;
   justify-content: space-between;
   transition: all 0.4s ease;
+  font-size: 1rem;
+
+  ${mediaMorzsi.lessThan("subLarge")`
+    font-size: .86rem;
+  `}
+
+  ${mediaMorzsi.between("small", "subMedium")`
+    align-itemns: stretch;
+    flex-direction: column;
+    gap: 1rem;
+  `}
 
   a {
     text-decoration: none;
