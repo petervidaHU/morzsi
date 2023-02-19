@@ -21,12 +21,11 @@ export const Hero = () => {
             alt="picture of a groomed dog"
             placeholder="blurred"
             height="600"
-            />
+          />
         </PicDiv>
         <TitleDiv>
-          Morzsi Szépül
-          <br />
-          kutyakozmetika
+          <div>Morzsi Szépül</div>
+          <div>kutyakozmetika</div>
         </TitleDiv>
       </HeroSection>
     </>
@@ -46,16 +45,30 @@ const HeroSection = styled(Section)`
   ${mediaMorzsi.lessThan("large")`
    min-height: 50vh;
    max-height: 50vh;
-  `}
+   `}
 
   ${mediaMorzsi.lessThan("subLarge")`
    min-height: 30vh;
    max-height: 30vh;
-  `}
+   `}
 
   ${mediaMorzsi.lessThan("medium")`
-   min-height: 30vh;
-   max-height: 30vh;
+   min-height: 25vw;
+   max-height: 25vw;
+  `}
+
+  ${mediaMorzsi.lessThan("subMedium")`
+   min-height: 28vw;
+   max-height: 28vw;
+  `}
+
+  ${mediaMorzsi.lessThan("small")`
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    max-height: 100%;
+    height: 65vh;
+    padding-block: 1rem;
   `}
 `
 
@@ -63,7 +76,7 @@ const PicDiv = styled.div`
   height: 60vh;
   // max-width: 40vw;
   min-width: 40vw;
-  
+
   ${mediaMorzsi.lessThan("large")`
    min-width: 45vw;
    `}
@@ -73,12 +86,17 @@ const PicDiv = styled.div`
    height: 45vh;
   `}
 
+  ${mediaMorzsi.lessThan("subMedium")`
+   height: 45vw;
+  `}
+
   background-repeat: no-repeat;
   background-position: left bottom;
   background-repeat: no-repeat;
   background-position-x: 10vw;
   background-size: 70%;
-  padding-left: 5vw;`
+  padding-left: 5vw;
+`
 
 const TitleDiv = styled.div`
   width: 100%;
@@ -88,25 +106,37 @@ const TitleDiv = styled.div`
   font-size: 5rem;
   color: ${titleColor};
   line-height: 1.1;
-  display: flex;
-  align-items: center;
   min-height: 10vh;
+  /* display: flex;
+  align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-evenly;
-  
+  justify-content: space-evenly; */
+
   ${mediaMorzsi.lessThan("large")`
-   font-size: 4rem;
+   font-size: 3.5rem;
    padding-inline-end: 1rem;
   `}
 
   ${mediaMorzsi.lessThan("subLarge")`
-   font-size: 3.5rem;
+   font-size: 3rem;
    padding-inline-end: 2rem;
   `}
 
   ${mediaMorzsi.lessThan("medium")`
-   font-size: 2rem;
+   font-size: 2.5rem;
    padding-inline-end: 2rem;
+  `}
+
+  ${mediaMorzsi.lessThan("subMedium")`
+   font-size: 6vw;
+   padding-inline-end: 2rem;
+  `}
+
+  ${mediaMorzsi.lessThan("small")`
+    font-size: 3rem;
+    min-width: 90vw;
+    padding: 0;
+    text-align: center;
   `}
 `

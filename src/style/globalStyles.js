@@ -7,6 +7,7 @@ export const mediaMorzsi = generateMedia({
   large: '1170px',
   subLarge: '960px',
   medium: '768px',
+  subMedium: '624px',
   small: '480px',
 });
 
