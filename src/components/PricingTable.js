@@ -39,9 +39,9 @@ const datas = [
   ["Bűzmirigy tisztítás", "15 perc ingyenes (600)"],
   ["Egészségügyi kozmetika", "1500-2500"],
   ["Csak fürdetés és szárítás", "2000-4000"],
-  ["Csak bontás fésülés", "1500/óra"],
+  ["Csak bontás fésülés", "1500 / óra"],
   ["Fogkő leszedés", "5000-8000"],
-  ["Fogkő utókezelés", "1500/alkalom"],
+  ["Fogkő utókezelés", "1500 / alkalom"],
 ]
 
 const pricingAforText = `A komplett kutyakozmetikai kezelés tartalmazza a teljes fazonozást, fürdetést, szárítást, az egészségügyi nyírásokat, tisztításokat, amennyiben szükségesek.
