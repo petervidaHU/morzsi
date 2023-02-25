@@ -3,6 +3,8 @@ import PhoneIcon from "./phoneIcon"
 import MarkerIcon from "./markerIcon"
 import styled from "styled-components"
 import { mediaMorzsi } from "../style/globalStyles"
+import { contact } from "../data/data"
+
 
 const iconSize = ".8rem"
 
@@ -11,7 +13,7 @@ export const CtaHeader = ({isOpen}) => {
     <CtaDiv isOpen={isOpen}>
       <span>
         <PhoneIcon size={iconSize}/>
-        <a href="tel:+36304281370">+3630-428-1370</a>
+        <a href={`tel:${contact.phoneNumber}`}>{contact.phoneReadable}</a>
       </span>
       <span>
         <MarkerIcon size={iconSize}/>
@@ -20,7 +22,7 @@ export const CtaHeader = ({isOpen}) => {
           rel="noreferrer"
           href="http://maps.google.com/?q=morzsi szepul kutyakozmetika debrecen"
         >
-          Debrecen, Feketerét u 23.
+          {contact.address}
         </a>
       </span>
     </CtaDiv>
