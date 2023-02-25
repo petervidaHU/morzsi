@@ -1,10 +1,8 @@
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import {
   Header,
   MapComponent,
   PricingTable,
-  Teeth,
   Footer,
   MainTopic,
   Seo,
@@ -25,8 +23,6 @@ const IndexPage = () => (
       <Gallery />
       <MapComponent />
       <PricingTable />
-      <Teszt wide/>
-      <Teeth />
     </main>
       <Footer />
   </>

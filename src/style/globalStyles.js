@@ -13,7 +13,7 @@ export const mediaMorzsi = generateMedia({
 
 
 const colorPurple = "hsl(300, 66%, 12%)"
-const colorLightPurple = "hsl(263, 12%, 53%)"
+const colorMedGray = "hsla(267, 9%, 43%)"
 const colorLight = "hsl(44, 90%, 100%)"
 const colorPale = "hsl(137, 25%, 72%)"
 const colorButter = "hsl(44, 58%, 90%)"
@@ -24,6 +24,7 @@ export const t  = {
     light1: colorPale,
     light2: colorLight,
     light3: colorButter,
+    med1: colorMedGray,
   },
   backgroundColor: {
     primary: "white",
@@ -39,9 +40,13 @@ export const t  = {
   fontSizes: [".7rem", "1rem", "1.2rem", "1.6rem", "2rem", "4rem", "8rem"],
 }
 
-export const GlobalStyle = createGlobalStyle`
+export const defaults = {
+  sectionPadding: t.padding[6],
 
-body {
+}
+
+export const GlobalStyle = createGlobalStyle`
+  body {
     font-family: ${t.fontFamily.primary}, sans-serif;
     box-sizing: border-box;
     margin: 0;
@@ -49,9 +54,6 @@ body {
     background-color: ${t.color.light2};
     color: ${({ theme }) =>
       theme === "primary" ? t.color.primary : t.color.secondary};
-  }
-  
-  section {
   }
   h1 {
     font-family: ${t.fontFamily.heading1}, Times, serif;
@@ -73,7 +75,6 @@ body {
     font-family: ${t.fontFamily.heading1}, Times, serif;
     font-size: ${t.fontSizes[3]};
   }
-
   p {
     font-family: ${t.fontFamily.primary}, Times, serif;
   }

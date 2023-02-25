@@ -6,6 +6,7 @@ import { mediaMorzsi } from "../style/globalStyles"
 import { useState } from "react"
 import { HamburgerMenu } from "./HamburgerMenu"
 import { CtaHeader } from "./ctaHeader"
+import Logo from "./svg/logo"
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -19,7 +20,7 @@ export const Header = () => {
     <NavStyled ascending={isAscending} top={isTop}>
       <ContainerDiv>
         <MenuDiv isOpen={menuOpen}>
-          LOGO
+          <Logo scaling="0.5"/>
           <div onClick={menuHandler}>
             <AnchorLink to="/#section-top">Top</AnchorLink>
           </div>
