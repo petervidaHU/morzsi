@@ -20,7 +20,7 @@ export const Header = () => {
     <NavStyled ascending={isAscending} top={isTop}>
       <ContainerDiv>
         <MenuDiv isOpen={menuOpen}>
-          <Logo scaling="0.5"/>
+          <Logo scaling="1"/>
           <div onClick={menuHandler}>
             <AnchorLink to="/#section-top">Top</AnchorLink>
           </div>
@@ -46,7 +46,7 @@ const NavStyled = styled.nav`
   background-color: ${top ? "brown" : "brown"};
   opacity: ${ascending ? 1 : 0.3};
   `};
-  padding: 20px 30px;
+  padding: 10px 20px;
   position: sticky;
   top: 0px;
   z-index: 10;
@@ -57,9 +57,11 @@ const NavStyled = styled.nav`
 `
 const ContainerDiv = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   transition: all 0.4s ease;
   font-size: 1rem;
+  letter-spacing: .1rem;
 
   ${mediaMorzsi.lessThan("subLarge")`
     font-size: .86rem;
@@ -79,8 +81,13 @@ const ContainerDiv = styled.div`
 `
 const MenuDiv = styled.div`
   display: flex;
+  align-items: center;
   transition: height 1s ease;
   justify-content: space-around;
+
+  svg {
+    margin-inline-end: 2rem;
+  }
 
   ${mediaMorzsi.lessThan("small")`
   ${({ isOpen }) =>

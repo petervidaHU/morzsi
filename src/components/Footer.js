@@ -1,6 +1,6 @@
 import * as React from "react"
 import styled from "styled-components"
-import { contact } from "../data/data"
+import { constData } from "../data/data"
 import { baseElements } from "../style/baseElements"
 import { t, defaults, mediaMorzsi } from "../style/globalStyles"
 import Logo from "./svg/logo"
@@ -19,8 +19,8 @@ export function Footer() {
       <FooterContainer>
         <FooterMain>
           <ContactDiv>
-            <span>{contact.phoneReadable}</span>
-            <span>{contact.address}</span>
+            <span>{constData.phoneReadable}</span>
+            <span>{constData.address}</span>
           </ContactDiv>
           <TitleDiv>
             <Logo scaling="2" fillDark={logoDarkColor} />
