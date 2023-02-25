@@ -37,8 +37,6 @@ export const t  = {
   padding: ["0.5rem", "1rem", "2rem", "3rem", "4rem", "6rem", "8rem"],
   margin: ["1rem", "2rem", "3rem", "4rem", "5rem", "6rem", "7rem"],
   fontSizes: [".7rem", "1rem", "1.2rem", "1.6rem", "2rem", "4rem", "8rem"],
-  borderUpDown: "polygon(0 10vh, 100% 0, 100% calc(100% - 10vh), 0 100%)",
-  borderDown: "polygon(0 0, 100% 0, 100% calc(100% - 10vh), 0 100%)",
 }
 
 export const GlobalStyle = createGlobalStyle`
