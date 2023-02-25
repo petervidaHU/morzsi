@@ -32,7 +32,7 @@ export function MapComponent() {
   }, [])
 
   return (
-    <MapSection id="section-map" wide borderUpDown noPaddingBlock>
+    <MapSection id="section-map" wide borderUp borderDown noPaddingBlock>
 
       {isLoaded ? (
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={17}>
