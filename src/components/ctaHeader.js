@@ -28,7 +28,6 @@ export const CtaHeader = ({isOpen}) => {
 }
 
 const CtaDiv = styled.div`
-width: 100%;
   max-height: 4rem;
   font-size: inherit;
 
