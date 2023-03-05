@@ -4,6 +4,7 @@ import { mediaMorzsi, t } from "../style/globalStyles"
 import bord from "../images/pet-grooming-debrecen-hero-1.webp"
 import { baseElements } from "../style/baseElements"
 import { StaticImage } from "gatsby-plugin-image"
+import { FormattedMessage } from 'gatsby-plugin-react-intl';
 
 const heroBackgroundColor = t.color.light3
 const titleFamily = t.fontFamily.heading1
@@ -25,7 +26,7 @@ export const Hero = () => {
         </PicDiv>
         <TitleDiv>
           <div>Morzsi Szépül</div>
-          <div>kutyakozmetika</div>
+          <div><FormattedMessage id="main.title" /></div>
         </TitleDiv>
       </HeroSection>
     </>

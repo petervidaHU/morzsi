@@ -4,16 +4,17 @@ import MarkerIcon from "./markerIcon"
 import styled from "styled-components"
 import { mediaMorzsi } from "../style/globalStyles"
 import { constData } from "../data/data"
-
+import { FormattedMessage, useIntl } from 'gatsby-plugin-react-intl';
 
 const iconSize = ".8rem"
 
 export const CtaHeader = ({isOpen}) => {
+  const intl = useIntl();
   return (
     <CtaDiv isOpen={isOpen}>
       <span>
         <PhoneIcon size={iconSize}/>
-        <a href={`tel:${constData.phoneNumber}`}>{constData.phoneReadable}</a>
+        <a href={`tel:${constData.phoneNumber[intl.locale]}`}><FormattedMessage id="phone" /></a>
       </span>
       <span>
         <MarkerIcon size={iconSize}/>
@@ -22,7 +23,7 @@ export const CtaHeader = ({isOpen}) => {
           rel="noreferrer"
           href="http://maps.google.com/?q=morzsi szepul kutyakozmetika debrecen"
         >
-          {constData.address}
+          <FormattedMessage id="address" />
         </a>
       </span>
     </CtaDiv>
