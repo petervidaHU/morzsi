@@ -38,6 +38,6 @@
   "miscPrices.wash": "Csak fürdetés és szárítás",
   "miscPrices.onlyCombing": "Csak bontás fésülés",
   "miscPrices.currency": "{price} Ft",
-  "miscPrices.hour": "{price } / óra",
-  "miscPrices.minutes":"{price} perc ingyen,  {hourPrice} / óra"
+  "miscPrices.hour": "{price } Ft/óra",
+  "miscPrices.minutes":"{price} perc ingyen,  {hourPrice} Ft/óra"
 }

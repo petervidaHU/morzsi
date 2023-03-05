@@ -7,7 +7,7 @@
   "menu.map": "map",
   "menu.prices": "prices",
   "menu.address": "Feketerét st. 23.",
-  "main.hero": "I am Ildikó Vallyon, a qualified dog beautician, and I have been working with dogs in Debrecen for years. In addition to the OKJ training, I had the chance to study and practice dog grooming in America. I am proud to say that most of my clients are returning customers and satisfied owners recommend me to others. Call me with any questions or to make an appointment: +3630 428 1370.",
+  "main.hero": "I am Ildikó Vallyon, a qualified dog groomer, and I have been working with dogs in Debrecen for years. In addition to the OKJ training, I had the chance to study and practice dog grooming in the USA. I am proud to say that most of my clients are returning customers and satisfied owners recommend me to others. Call me with any questions or to make an appointment: +3630 428 1370.",
   "main.sectiontitle.prices": "Prices",
   "main.prices.inittext": "A complete dog grooming treatment includes full grooming, bathing, drying, sanitary clipping, and cleaning if necessary. The price may vary if the coat and condition of the animal are significantly worse than average. For breeds not listed in the price table, please feel free to call!",
   "main.prices.aboutprices": "Our prices are gross prices and are quoted in Hungarian forints. I do not accept animals without vaccination. I do not accept aggressive or difficult-to-handle animals or owners.",
@@ -38,6 +38,6 @@
   "miscPrices.wash": "Only wash and dry",
   "miscPrices.onlyCombing": "Only fur combing and plume cleaning",
   "miscPrices.currency": "{price} HUF",
-  "miscPrices.hour": "{price} / hour",
-  "miscPrices.minutes":"{price} min. free,  {hourPrice} / hour"
+  "miscPrices.hour": "{price} HUF/hour",
+  "miscPrices.minutes":"{price} min. free,  {hourPrice} HUF/hour"
 }
