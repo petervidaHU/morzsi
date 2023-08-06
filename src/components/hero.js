@@ -35,7 +35,7 @@ export const Hero = () => {
 
 const HeroSection = styled(Section)`
   align-items: center;
-  background-color: ${heroBackgroundColor};
+  background-color: white;
   display: flex;
   justify-content: space-between;
   line-height: 0;
