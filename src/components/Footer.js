@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { constData } from "../data/data"
 import { baseElements } from "../style/baseElements"
 import { t, defaults, mediaMorzsi } from "../style/globalStyles"
+import { FormattedMessage } from 'gatsby-plugin-react-intl';
 import Logo from "./svg/logo"
 
 const Section = baseElements.MySection
@@ -19,15 +20,15 @@ export function Footer() {
       <FooterContainer>
         <FooterMain>
           <ContactDiv>
-            <span>{constData.phoneReadable}</span>
-            <span>{constData.address}</span>
+            <span><FormattedMessage id="phone"/></span>
+            <span><FormattedMessage id="address"/></span>
           </ContactDiv>
           <TitleDiv>
             <Logo scaling="2" fillDark={logoDarkColor} />
             <div>
               Morzsi szépül
               <br />
-              Kutyakozmetika
+              <FormattedMessage id="main.title"/>
             </div>
           </TitleDiv>
         </FooterMain>

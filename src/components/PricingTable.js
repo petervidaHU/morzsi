@@ -4,39 +4,77 @@ import { constData } from "../data/data"
 import { getDarkerColor } from "../helpers"
 import { baseElements } from "../style/baseElements"
 import { mediaMorzsi, t } from "../style/globalStyles"
+import { FormattedMessage, useIntl } from "gatsby-plugin-react-intl"
 
 const Section = baseElements.MySection
 const tableBackground = t.color.light2
 const trPadding = t.padding[0]
-const pricingAforText = `A komplett kutyakozmetikai kezelés tartalmazza a teljes fazonozást, fürdetést, szárítást, az egészségügyi nyírásokat, tisztításokat, amennyiben szükségesek.
-Az ár változhat, ha az állat szőre és állapota az átlagostól jelentősen rosszabb. 
-Az ártáblázatban nem szereplő fajtákkal kapcsolatban hívjon bátran!`
-const pricingAfterText = `Áraink bruttó árak és magyar forintban értendőek.
-Oltással nem rendelkező állatokat nem fogadok.
-Agresszív, illetve nehezen kezelhető állatokat illetve gazdikat nem fogadok. `
 
 export function PricingTable() {
+  const intl = useIntl()
   const breedJSX = constData.breedsPrice.map(breedData => (
     <tr key={breedData[0] + breedData[1]}>
-      <td>{breedData[0]}:</td>
-      <td>{breedData[1]}</td>
+      <td>{intl.formatMessage({ id: breedData[0] })}:</td>
+      <td>
+        <FormattedMessage
+          id={"miscPrices.currency"}
+          values={{ price: breedData[1] }}
+        />
+      </td>
     </tr>
   ))
   const dataJSX = constData.miscPrice.map(data => (
     <tr key={data[0]}>
-      <td>{data[0]}:</td>
-      <td>{data[1]}</td>
+      <td>{intl.formatMessage({ id: data[0] })}</td>
+      <td>
+        {" "}
+        <FormattedMessage
+          id={"miscPrices.currency"}
+          values={{ price: data[1] }}
+        />
+      </td>
+    </tr>
+  ))
+  const dataPerMinuteJSX = constData.miscMinutesPrice.map(data => (
+    <tr key={data[0]}>
+      <td>{intl.formatMessage({ id: data[0] })}</td>
+      <td>
+        {" "}
+        <FormattedMessage
+          id={"miscPrices.minutes"}
+          values={{ price: data[1], hourPrice: data[2] }}
+        />
+      </td>
+    </tr>
+  ))
+  const dataPerHourJSX = constData.miscHourPrice.map(data => (
+    <tr key={data[0]}>
+      <td>{intl.formatMessage({ id: data[0] })}</td>
+      <td>
+        {" "}
+        <FormattedMessage
+          id={"miscPrices.hour"}
+          values={{ price: data[1] }}
+        />
+      </td>
     </tr>
   ))
   return (
     <Section id="section-prices">
-      <h2>Árlista</h2>
-      <p>{pricingAforText}</p>
-      <p>{pricingAfterText}</p>
+      <h2>
+        <FormattedMessage id="main.sectiontitle.prices" />
+      </h2>
+      <p>
+        <FormattedMessage id="main.prices.inittext" />
+      </p>
+      <FormattedMessage id="main.prices.aboutprices" />
+      <p></p>
       <Table>
         <tbody>
           {breedJSX}
           {dataJSX}
+          {dataPerMinuteJSX}
+          {dataPerHourJSX}
         </tbody>
       </Table>
     </Section>
@@ -53,7 +91,7 @@ const Table = styled.table`
   ${mediaMorzsi.lessThan("subHuge")`
     width: 60%;
     `}
-    
+
   ${mediaMorzsi.lessThan("large")`
     width: 70%;
   `}

@@ -7,8 +7,11 @@ import { useState } from "react"
 import { HamburgerMenu } from "./HamburgerMenu"
 import { CtaHeader } from "./ctaHeader"
 import Logo from "./svg/logo"
+import { LanguageSwitcher } from "./LanguageSwitcher"
+import { FormattedMessage, useIntl } from 'gatsby-plugin-react-intl';
 
 export const Header = () => {
+  const intl = useIntl();
   const [menuOpen, setMenuOpen] = useState(false)
   const { isTop, isAscending } = useScrollY()
 
@@ -22,21 +25,30 @@ export const Header = () => {
         <MenuDiv isOpen={menuOpen}>
           <Logo scaling="1"/>
           <div onClick={menuHandler}>
-            <AnchorLink to="/#section-top">Top</AnchorLink>
+            <AnchorLink to={`/${intl.locale}/#section-top`}>
+              <FormattedMessage id="menu.top"/>
+              </AnchorLink>
           </div>
           <div onClick={menuHandler}>
-            <AnchorLink to="/#section-gallery">Képgaléria</AnchorLink>
+            <AnchorLink to={`/${intl.locale}/#section-gallery`}>
+              <FormattedMessage id="menu.gallery"/>
+              </AnchorLink>
           </div>
           <div onClick={menuHandler}>
-            <AnchorLink to="/#section-map">Térkép</AnchorLink>
+            <AnchorLink to={`/${intl.locale}/#section-map`}>
+              <FormattedMessage id="menu.map"/>
+              </AnchorLink>
           </div>
           <div onClick={menuHandler}>
-            <AnchorLink to="/#section-prices">árak</AnchorLink>
+            <AnchorLink to={`/${intl.locale}/#section-prices`}>
+              <FormattedMessage id="menu.prices"/>
+              </AnchorLink>
           </div>
         </MenuDiv>
         <CtaHeader isOpen={menuOpen}/>
         <HamburgerMenu handler={menuHandler} menuOpen={menuOpen} />
       </ContainerDiv>
+      <LanguageSwitcher />
     </NavStyled>
   )
 }
