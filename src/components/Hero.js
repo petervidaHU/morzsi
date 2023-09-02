@@ -1,67 +1,69 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { mediaMorzsi, t } from "../style/globalStyles"
-import bord from "../images/pet-grooming-debrecen-hero-1.webp"
 import { baseElements } from "../style/baseElements"
 import { StaticImage } from "gatsby-plugin-image"
+import Logo from "./svg/logo"
 import { FormattedMessage } from 'gatsby-plugin-react-intl';
 
-const heroBackgroundColor = t.color.light3
 const titleFamily = t.fontFamily.heading1
 const titleColor = t.color.dark1
-const borderFancy = t.borderFancy
-const Section = baseElements.MySection
+const { MySection } = baseElements
 
 export const Hero = () => {
+  const [screenWidth, setScreenWidth] = useState(3);
+  
+  window.addEventListener("resize", () => {
+    const newScreenWidth = window.innerWidth;
+    if (newScreenWidth < 960 && newScreenWidth !== 2) {
+      setScreenWidth(2);
+    }
+    if (newScreenWidth > 960 && newScreenWidth !== 3) {
+      setScreenWidth(3);
+    }
+  
+  });
+  
   return (
-    <>
-      <HeroSection wide borderDown>
-        <PicDiv>
-          <StaticImage
-            src="../images/pet-grooming-debrecen-hero-1.webp"
-            alt="picture of a groomed dog"
-            placeholder="blurred"
-            height="600"
-          />
-        </PicDiv>
-        <TitleDiv>
-          <div>Morzsi Szépül</div>
-          <div><FormattedMessage id="main.title" /></div>
-        </TitleDiv>
-      </HeroSection>
-    </>
+    <HeroSection wide>
+
+      <PicDiv>
+        <StaticImage
+          src="../images/pet-grooming-debrecen-hero-1.webp"
+          alt="picture of a groomed dog"
+          placeholder="blurred"
+          height="600"
+        />
+      </PicDiv>
+
+      <TitleDiv>
+        <Logo scaling={screenWidth} />
+        <div>
+          <div>
+            Morzsi Szépül
+          </div>
+          <div>
+            <FormattedMessage id="main.title" />
+          </div>
+        </div>
+      </TitleDiv>
+
+    </HeroSection>
   )
 }
 
-const HeroSection = styled(Section)`
+const HeroSection = styled(MySection)`
+  margin-top: -2rem;
   align-items: center;
   background-color: white;
   display: flex;
   justify-content: space-between;
   line-height: 0;
-  min-height: 60vh;
-  max-height: 60vh;
   overflow: hidden;
 
-  ${mediaMorzsi.lessThan("large")`
-   min-height: 50vh;
-   max-height: 50vh;
-   `}
-
   ${mediaMorzsi.lessThan("subLarge")`
-   min-height: 30vh;
-   max-height: 30vh;
+    flex-direction: column;
    `}
-
-  ${mediaMorzsi.lessThan("medium")`
-   min-height: 25vw;
-   max-height: 25vw;
-  `}
-
-  ${mediaMorzsi.lessThan("subMedium")`
-   min-height: 28vw;
-   max-height: 28vw;
-  `}
 
   ${mediaMorzsi.lessThan("small")`
     display: flex;
@@ -74,22 +76,10 @@ const HeroSection = styled(Section)`
 `
 
 const PicDiv = styled.div`
-  height: 60vh;
-  // max-width: 40vw;
-  min-width: 40vw;
-
-  ${mediaMorzsi.lessThan("large")`
-   min-width: 45vw;
-   `}
-
   ${mediaMorzsi.lessThan("subLarge")`
-   min-width: 30vw;
-   height: 45vh;
-  `}
-
-  ${mediaMorzsi.lessThan("subMedium")`
-   height: 45vw;
-  `}
+    max-width: 50vw;
+    margin-bottom: 2rem;
+  `} 
 
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -98,21 +88,28 @@ const PicDiv = styled.div`
   background-size: 70%;
   padding-left: 5vw;
 `
-
 const TitleDiv = styled.div`
   width: 100%;
   max-width: 60vw;
-  padding-block-end: 5vw;
   font-family: ${titleFamily};
   font-size: 5rem;
   color: ${titleColor};
   line-height: 1.1;
   min-height: 10vh;
-  /* display: flex;
+  display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-evenly; */
+  justify-content: flex-start; 
+
+  & div {
+    margin-left: 3rem;
+  }
+
+  ${mediaMorzsi.lessThan("subHuge")`
+   font-size: 4rem;
+   padding-inline-end: 1rem;
+  `}
 
   ${mediaMorzsi.lessThan("large")`
    font-size: 3.5rem;
@@ -121,17 +118,22 @@ const TitleDiv = styled.div`
 
   ${mediaMorzsi.lessThan("subLarge")`
    font-size: 3rem;
-   padding-inline-end: 2rem;
+   padding-inline-end: 0rem;
+   justify-content: center;
+
+   & div {
+    margin-left: 2rem;
+   }
   `}
 
   ${mediaMorzsi.lessThan("medium")`
    font-size: 2.5rem;
-   padding-inline-end: 2rem;
+   padding-inline-end: 0rem;
   `}
 
   ${mediaMorzsi.lessThan("subMedium")`
    font-size: 6vw;
-   padding-inline-end: 2rem;
+   padding-inline-end: 0rem;
   `}
 
   ${mediaMorzsi.lessThan("small")`

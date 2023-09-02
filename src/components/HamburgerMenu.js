@@ -2,13 +2,13 @@ import React from 'react'
 import styled from "styled-components"
 import { mediaMorzsi } from "../style/globalStyles"
 
-export const HamburgerMenu = ({handler, menuOpen}) => {
+export const HamburgerMenu = ({ handler, menuOpen }) => {
   return (
     <HamburgerDiv onClick={handler} isOpen={menuOpen}>
-    <div></div>
-    <div></div>
-    <div></div>
-  </HamburgerDiv>
+      <div></div>
+      <div></div>
+      <div></div>
+    </HamburgerDiv>
   )
 }
 
@@ -27,8 +27,8 @@ const HamburgerDiv = styled.div`
   div {
     width: 30px;
     height: 3px;
-    background: black;
-    margin: 6px 0;
+    background: white;
+    margin: 4px 0;
     transition: all 0.4s ease;
   }
   ${({ isOpen }) =>

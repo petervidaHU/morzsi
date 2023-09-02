@@ -6,7 +6,7 @@ import { baseElements } from "../style/baseElements"
 import { mediaMorzsi, t } from "../style/globalStyles"
 import { FormattedMessage, useIntl } from "gatsby-plugin-react-intl"
 
-const Section = baseElements.MySection
+const { MySection, BasicDiv } = baseElements
 const tableBackground = t.color.light2
 const trPadding = t.padding[0]
 
@@ -60,15 +60,16 @@ export function PricingTable() {
     </tr>
   ))
   return (
-    <Section id="section-prices">
+    <MySection id="section-prices">
       <h2>
         <FormattedMessage id="main.sectiontitle.prices" />
       </h2>
-      <p>
+      <BasicDiv>
         <FormattedMessage id="main.prices.inittext" />
-      </p>
-      <FormattedMessage id="main.prices.aboutprices" />
-      <p></p>
+        <br/>
+        <FormattedMessage id="main.prices.aboutprices" />
+      </BasicDiv>
+
       <Table>
         <tbody>
           {breedJSX}
@@ -77,16 +78,16 @@ export function PricingTable() {
           {dataPerHourJSX}
         </tbody>
       </Table>
-    </Section>
+    </MySection>
   )
 }
 
 console.log("get darjer:")
 
 const Table = styled.table`
-  margin: 0 auto;
+  margin: 2rem auto;
   border-collapse: collapse;
-  width: 50%;
+  width: 100%;
 
   ${mediaMorzsi.lessThan("subHuge")`
     width: 60%;
