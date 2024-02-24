@@ -5,9 +5,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 export const LanguageSwitcher = ({c}) => {
   const { locale } = useIntl();
 
-  const flagContainer = locale === 'en'
+  const flagContainer = locale === 'hu'
     ? (
-      <div onClick={() => c('hu')}>
+      <div onClick={() => c('en')}>
         <StaticImage
           src="../assets/flaghun.png"
           alt="picture of the english flag for language selection"
@@ -17,7 +17,7 @@ export const LanguageSwitcher = ({c}) => {
       </div>
     )
     : (
-      <div onClick={() => c('en')}>
+      <div onClick={() => c('hu')}>
         <StaticImage
           src="../assets/flageng.png"
           alt="picture of the hungarian flag for language selection"

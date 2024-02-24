@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { mediaMorzsi, t } from "../style/globalStyles"
 import { baseElements } from "../style/baseElements"
@@ -12,18 +12,25 @@ const { MySection } = baseElements
 
 export const Hero = () => {
   const [screenWidth, setScreenWidth] = useState(3);
-  
-  window.addEventListener("resize", () => {
-    const newScreenWidth = window.innerWidth;
-    if (newScreenWidth < 960 && newScreenWidth !== 2) {
-      setScreenWidth(2);
-    }
-    if (newScreenWidth > 960 && newScreenWidth !== 3) {
-      setScreenWidth(3);
-    }
-  
-  });
-  
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newScreenWidth = window.innerWidth;
+      if (newScreenWidth < 960 && newScreenWidth !== 2) {
+        setScreenWidth(2);
+      }
+      if (newScreenWidth > 960 && newScreenWidth !== 3) {
+        setScreenWidth(3);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+    
   return (
     <HeroSection wide>
 
@@ -33,6 +40,7 @@ export const Hero = () => {
           alt="picture of a groomed dog"
           placeholder="blurred"
           height="600"
+          loading="eager"
         />
       </PicDiv>
 
@@ -52,7 +60,7 @@ export const Hero = () => {
   )
 }
 
-const HeroSection = styled(MySection)`
+const HeroSection = styled(MySection)` 
   margin-top: -2rem;
   align-items: center;
   background-color: white;
@@ -65,12 +73,20 @@ const HeroSection = styled(MySection)`
     flex-direction: column;
    `}
 
-  ${mediaMorzsi.lessThan("small")`
+  ${mediaMorzsi.lessThan("subMedium")`
     display: flex;
     justify-content: flex-end;
     flex-direction: column-reverse;
     max-height: 100%;
-    height: 65vh;
+    padding-block: 1rem;
+  `}
+
+  ${mediaMorzsi.lessThan("small")`
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    max-height: 100%;
     padding-block: 1rem;
   `}
 `
@@ -79,6 +95,11 @@ const PicDiv = styled.div`
   ${mediaMorzsi.lessThan("subLarge")`
     max-width: 50vw;
     margin-bottom: 2rem;
+  `} 
+
+  ${mediaMorzsi.lessThan("subMedium")`
+    max-width: 70vw;
+    margin-bottom: 0;
   `} 
 
   background-repeat: no-repeat;
@@ -129,6 +150,7 @@ const TitleDiv = styled.div`
   ${mediaMorzsi.lessThan("medium")`
    font-size: 2.5rem;
    padding-inline-end: 0rem;
+ 
   `}
 
   ${mediaMorzsi.lessThan("subMedium")`
@@ -141,5 +163,13 @@ const TitleDiv = styled.div`
     min-width: 90vw;
     padding: 0;
     text-align: center;
+
+    & svg {
+      display: none;
+    }
+    
+    & div {
+    margin-left: 0;
+   }
   `}
 `

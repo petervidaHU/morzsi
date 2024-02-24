@@ -1,11 +1,9 @@
 import React from "react"
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api"
 import styled from "styled-components"
-import { t } from "../style/globalStyles"
 import { baseElements } from "../style/baseElements"
 
 const Section = baseElements.MySection
-console.log(process.env.GOOGLE_MAP_API)
 const center = {
   lat: 47.50758,
   lng: 21.66485,
